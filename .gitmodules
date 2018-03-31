@@ -1,0 +1,3 @@
+[submodule "casumo-models"]
+	path = casumo-models
+	url = https://miguelgimenezgimenez@bitbucket.org/miguelgimenezgimenez/casumo-models.git
