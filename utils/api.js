@@ -7,11 +7,6 @@ const apiCall = (dispatch, endpoint, type) =>
     .then(response => response.json())
     .then((data) => {
       if (data.error) throw new Error(data.error)
-      console.log(data)
-      data.items.forEach((book) => {
-        console.log(book.volumeInfo.title)
-      })
-      dispatch({ type, data })
     })
     .catch((error) => {
       console.log(error)
