@@ -10,16 +10,16 @@ import createStore from './store'
 const store = createStore({})
 
 const render = () => {
-    ReactDOM.render(
-        <Provider store={store}>
-            <BrowserRouter>
-                <Layout>
-                    {routes}
-                </Layout>
-            </BrowserRouter>
-        </Provider>,
-        document.getElementById('app')
-    )
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <Layout>
+          {routes}
+        </Layout>
+      </BrowserRouter>
+    </Provider>,
+    document.getElementById('app')
+  )
 }
 
 render()

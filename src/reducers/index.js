@@ -1,2 +1,3 @@
+import book from './book'
 
-export default { }
+export default { book }

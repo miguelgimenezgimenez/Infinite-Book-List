@@ -1,13 +1,11 @@
 {
     "development": {
         "goodreadsKey": "ruCWN31eyc9mhkBd07ftA",
-        "goodreadsSecret": "6Nos93lIrdEnKfmxVepkkIRrmSSAZM49CYICV7W8no",
-        "googleApiKey": "AIzaSyCY3aUbTx2luQj8H8Iq-qKQa1_CezeTDdg",
-
+        "API_URL": "http://localhost:5050",
         "mongodbUrl": "mongodb://localhost/casumo2"
     },
     "production": {
         "mongodbUrl": "mongodb://admin:3h2p2t1p@ds227989-a0.mlab.com:27989,ds227989-a1.mlab.com:27989/casumo?replicaSet=rs-ds227989"
     }
-    
+
 }
