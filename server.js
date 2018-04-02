@@ -1,12 +1,20 @@
-const path = require('path')
 const express = require('express')
+const cons = require('consolidate')
+const path = require('path')
 
-const DIST_DIR = path.join(__dirname, 'dist')
-const PORT = process.env.port || 8080
 const app = express()
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(DIST_DIR, 'index.html'))
+app.engine('html', cons.swig)
+// view engine setup
+app.set('view engine', 'html')
+
+app.set('views', path.join(__dirname, 'www'))
+
+app.use(express.static(path.join(__dirname, 'dist')))
+
+app.use('/', (req, res) => res.render('index.html'))
+
+app.listen(8080, () => {
+  // eslint-disable-next-line
+  console.log('Express running on http://localhost:8080')
 })
-// eslint-disable-next-line
-app.listen(PORT, () => console.log('listening on port', PORT))

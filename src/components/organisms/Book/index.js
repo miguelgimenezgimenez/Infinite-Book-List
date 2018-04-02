@@ -9,7 +9,9 @@ class Book extends Component {
 
   render () {
     return (
-      <div />
+      <div >
+        {/* {this.props.list.map((book, i) => <div key={i} > <p />{book.title}</div>)} */}
+      </div>
     )
   }
 }

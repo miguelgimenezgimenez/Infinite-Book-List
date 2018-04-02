@@ -21,6 +21,8 @@ const Layout = props => (
   <MuiThemeProvider muiTheme={muiTheme}>
     <div>
       <Navbar />
+      <div >{props.children}</div>
+
     </div>
   </MuiThemeProvider>
 )
