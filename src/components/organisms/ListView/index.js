@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // import RainbowListDelegate from './RainbowListDelegate'
 import { connect } from 'react-redux'
+import { LazyLoad } from 'react-lazyload'
 
 class ListView extends Component {
   constructor (props) {
@@ -28,32 +29,37 @@ class ListView extends Component {
   render () {
     const { availableHeight, scrollTop } = this.state
     const { list, rowHeight } = this.props
+    console.log(list)
+    if (!list) {
+      return (<div
+        onScroll={e => this.handleScroll(e)}
+        style={{ height: '100vh', overflowY: 'scroll' }}
+        ref={node => (this.node = node)}
+      />)
+    }
 
     const numRows = list.length
     const totalHeight = rowHeight * numRows
-    console.log(numRows, 'numrows')
-    console.log(totalHeight, 'totalheight')
-    console.log(rowHeight)
     const startIndex = Math.min(Math.floor(scrollTop / rowHeight), list.length - 1)
     const endIndex = Math.min(startIndex + Math.ceil(availableHeight / rowHeight), list.length)
 
     const items = []
 
     let index = startIndex
-    if (this.props.list.length) {
+    if (list.length) {
       while (index < endIndex) {
-        if (this.props.list[index]) {
+        if (list[index]) {
           items.push(<li key={index}>
             <div
               style={{
                 height: rowHeight,
-                padding: '50px 10px',
+                padding: '5px 10px',
                 fontSize: 24
               }}
             >
-              {this.props.list[index].title}
+              {list[index].title}
             </div>
-                     </li>)
+          </li>)
         } else {
           console.log('breeeak')
           break
@@ -61,6 +67,7 @@ class ListView extends Component {
         index++
       }
     }
+    console.log(items)
     return (
       <div
         onScroll={e => this.handleScroll(e)}
@@ -74,6 +81,10 @@ class ListView extends Component {
           }}
         >
           <ol>{items}</ol>
+          {/* { this.props.list[letter].length > 0 && <LazyLoad height={220} offset={500}>
+            <ListView limit={100} letter={this.props.letter} rowHeight={30} />
+          </LazyLoad>} */}
+
         </div>
       </div>
     )
@@ -84,7 +95,7 @@ ListView.propTypes = {
   rowHeight: PropTypes.number.isRequired
 }
 
-const mapStateToProps = state => ({
-  list: state.book.list
+const mapStateToProps = (state, ownProps) => ({
+  list: state.book.list[ownProps.letter]
 })
 export default connect(mapStateToProps)(ListView)

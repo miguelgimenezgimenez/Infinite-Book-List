@@ -1,14 +1,20 @@
 
 const INITIAL_STATE = {
   error: null,
-  list: [],
+  list: {},
   loading: false
 }
 const setError = (state, error) => ({ ...state, error, loading: false })
 
 const setLoading = (state, loading) => ({ ...state, loading })
 
-const setBookList = (state, list) => ({ ...state, list: state.list.concat(list) })
+const setBookList = (state, data) => {
+  const { bookList, letter } = data
+  const list = { ...state.list }
+  if (!list[letter]) list[letter] = bookList
+  else list[letter] = list[letter].concat(bookList)
+  return { ...state, list }
+}
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {

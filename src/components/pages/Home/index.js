@@ -10,14 +10,15 @@ export default class Home extends Component {
   render () {
     return (
       <div >
-        <ListView rowHeight={30} />
-        <LazyLoad height={2800} offset={100} >
+        <ListView letter="A" rowHeight={30} />
+        {/* <Book letter="A" /> */}
+        <LazyLoad height={28000} offset={1000} >
           <Book letter="A" />
         </LazyLoad>
         <LazyLoad height={2800} offset={100} >
           <Book letter="B" />
         </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
+        {/* <LazyLoad height={2800} offset={100}>
           <Book letter="C" />
         </LazyLoad>
         <LazyLoad height={2800} offset={100}>
@@ -37,7 +38,7 @@ export default class Home extends Component {
         </LazyLoad>
         <LazyLoad height={2800} offset={100}>
           <Book letter="I" />
-        </LazyLoad>
+        </LazyLoad> */}
       </div>)
   }
 }
