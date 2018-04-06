@@ -9,7 +9,8 @@ class ListView extends Component {
     super(props)
     this.state = {
       availableHeight: 0,
-      scrollTop: 0
+      scrollTop: 0,
+      maxHeight: this.props.list.length * this.props.rowHeight
     }
   }
 
@@ -22,14 +23,13 @@ class ListView extends Component {
 
   handleScroll (event) {
     this.setState({
-      scrollTop: event.target.scrollTop
+      scrollTop: Math.min(event.target.scrollTop, this.state.maxHeight)
     })
   }
 
   render () {
     const { availableHeight, scrollTop } = this.state
     const { list, rowHeight } = this.props
-    console.log(list)
     if (!list) {
       return (<div
         onScroll={e => this.handleScroll(e)}
@@ -40,11 +40,10 @@ class ListView extends Component {
 
     const numRows = list.length
     const totalHeight = rowHeight * numRows
-    const startIndex = Math.min(Math.floor(scrollTop / rowHeight), list.length - 1)
-    const endIndex = Math.min(startIndex + Math.ceil(availableHeight / rowHeight), list.length)
-
+    const startIndex = Math.floor(scrollTop / rowHeight)
+    const endIndex = startIndex + Math.ceil(availableHeight / rowHeight)
     const items = []
-
+    console.log(startIndex, endIndex, scrollTop)
     let index = startIndex
     if (list.length) {
       while (index < endIndex) {
@@ -67,7 +66,6 @@ class ListView extends Component {
         index++
       }
     }
-    console.log(items)
     return (
       <div
         onScroll={e => this.handleScroll(e)}
