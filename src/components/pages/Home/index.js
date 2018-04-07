@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LazyLoad from 'react-lazyload'
-import NextLetterComponent from '../../organisms/NextLetterComponent'
 import ListView from '../../organisms/ListView/index'
 import * as bookActions from '../../../actions/book'
 
@@ -30,17 +28,13 @@ class Home extends Component {
     return (
       <div >
         {list.length > 0 &&
-        <ListView list={list} rowHeight={30} >
-          <LazyLoad height={1000}>
-            <NextLetterComponent
-              letter="B"
-              list={this.props.list}
-              dispatch={this.props.dispatch}
-            />
-          </LazyLoad>
-        </ListView>
+        <ListView list={list} rowHeight={30} />
         }
-
+        <NextLetterComponent
+          letter="B"
+          list={this.props.list}
+          dispatch={this.props.dispatch}
+        />
       </div>)
   }
 }

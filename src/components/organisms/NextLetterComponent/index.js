@@ -1,19 +1,32 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { LazyLoad } from 'react-lazyload'
+import LazyLoad from 'react-lazyload'
 import * as bookActions from '../../../actions/book'
-import { lazyload } from 'react-lazyload'
-
-@lazyload({
-  height: 200,
-  offset: 100
-})
 
 class NextLetterComponent extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      scrollTop: 0
+      // maxHeight: this.props.list.length * this.props.rowHeight
+    }
+  }
+
   componentDidMount () {
     if (this.props.letter.match(/[A-Z]/)) {
       bookActions.listForLetter(this.props.dispatch, this.props.letter)
     }
+  }
+
+  loader () {
+    const { letter } = this.props
+    if (letter === 'Z') return null
+    return 'LOADING'
+  }
+
+  handleScroll (event) {
+    this.setState({
+      scrollTop: event.target.scrollTop
+    })
   }
 
   render () {
@@ -25,7 +38,7 @@ class NextLetterComponent extends Component {
         {this.props.list[letter]
           ? <NextLetterComponent list={this.props.list} letter={String.fromCharCode(charCode + 1)} dispatch={this.props.dispatch} />
 
-          : 'Loading...'}
+          : this.loader()}
       </div>
     )
   }

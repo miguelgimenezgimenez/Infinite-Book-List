@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import RainbowListDelegate from './RainbowListDelegate'
 import { connect } from 'react-redux'
-import { LazyLoad } from 'react-lazyload'
+
+import Book from '../../molecules/Book'
 
 class ListView extends Component {
   constructor (props) {
@@ -10,7 +10,6 @@ class ListView extends Component {
     this.state = {
       availableHeight: 0,
       scrollTop: 0
-      // maxHeight: this.props.list.length * this.props.rowHeight
     }
   }
 
@@ -19,6 +18,10 @@ class ListView extends Component {
     this.setState({
       availableHeight: this.node.clientHeight
     })
+  }
+
+  getNextLetter () {
+    bookActions.listForLetter(this.props.dispatch, this.props.letter)
   }
 
   handleScroll (event) {
@@ -40,22 +43,15 @@ class ListView extends Component {
     if (list.length) {
       while (index < endIndex) {
         if (list[index]) {
-          items.push(<li key={index}>
-            <div
-              style={{
-                height: rowHeight,
-                padding: '5px 10px',
-                fontSize: 24
-              }}
-            >
-              {`${index} ${list[index].title}`}
-            </div>
-                     </li>)
+          items.push(<Book key={index} item={list[index]} />)
         } else {
           break
         }
         index++
       }
+    }
+    if (list.length - endIndex < 100) {
+      this.getNextLetter()
     }
     return (
       <div
@@ -81,4 +77,7 @@ ListView.propTypes = {
   rowHeight: PropTypes.number.isRequired
 }
 
-export default ListView
+const mapStateToProps = state => ({
+  list: state.book.list
+})
+export default connect(mapStateToProps)(ListView)
