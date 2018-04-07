@@ -43,7 +43,7 @@ class ListView extends Component {
     const startIndex = Math.floor(scrollTop / rowHeight)
     const endIndex = startIndex + Math.ceil(availableHeight / rowHeight)
     const items = []
-    console.log(startIndex, endIndex, scrollTop)
+    console.log(list.length)
     let index = startIndex
     if (list.length) {
       while (index < endIndex) {
@@ -56,11 +56,10 @@ class ListView extends Component {
                 fontSize: 24
               }}
             >
-              {list[index].title}
+              {`${index} ${list[index].title}`}
             </div>
           </li>)
         } else {
-          console.log('breeeak')
           break
         }
         index++
@@ -74,14 +73,11 @@ class ListView extends Component {
       >
         <div
           style={{
-            height: totalHeight,
+            height: totalHeight - (startIndex * rowHeight),
             paddingTop: startIndex * rowHeight
           }}
         >
-          <ol>{items}</ol>
-          {/* { this.props.list[letter].length > 0 && <LazyLoad height={220} offset={500}>
-            <ListView limit={100} letter={this.props.letter} rowHeight={30} />
-          </LazyLoad>} */}
+          <ul>{items}</ul>
 
         </div>
       </div>

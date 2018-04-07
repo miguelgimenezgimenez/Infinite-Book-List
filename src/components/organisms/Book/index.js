@@ -11,7 +11,6 @@ class Book extends Component {
     return (
       <div >
         {/* {this.props.list.map((book, i) => <div key={i} > <p />{book.title}</div>)} */}
-        <ol>{this.props.items} </ol>
       </div>
     )
   }

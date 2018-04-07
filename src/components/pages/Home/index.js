@@ -12,7 +12,7 @@ class Home extends Component {
     return (
       <div >
         {this.props.list.A && <ListView letter="A" rowHeight={30} />}
-        {this.props.list.B && <ListView letter="B" rowHeight={30} />}
+        {/* {this.props.list.B && <ListView letter="B" rowHeight={30} />} */}
         {/* <Book letter="A" /> */}
         <LazyLoad height={28000} offset={1000} >
           <Book letter="A" />
