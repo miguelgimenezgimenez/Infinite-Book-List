@@ -13,7 +13,7 @@ const setBookList = (state, data) => {
   const list = { ...state.list }
   if (!list[letter]) list[letter] = bookList
   else list[letter] = list[letter].concat(bookList)
-  return { ...state, list }
+  return { ...state, list, loading: false }
 }
 
 export default (state = INITIAL_STATE, action) => {

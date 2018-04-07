@@ -6,14 +6,10 @@ import * as bookActions from '../../../actions/book'
 const getBookList = (bookList) => {
   let i
   let list = []
-  for (i = 'A'.charCodeAt(0); i < 'Z'.charCodeAt(0); i++) {
+  for (i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
     const letter = String.fromCharCode(i)
-    if (bookList) {
-      if (bookList[letter]) list = list.concat(bookList[letter])
-      else return list
-    } else {
-      list.push(letter)
-    }
+    if (bookList[letter]) list = list.concat(bookList[letter])
+    else return list
   }
   return list
 }
@@ -30,11 +26,6 @@ class Home extends Component {
         {list.length > 0 &&
         <ListView list={list} rowHeight={30} />
         }
-        <NextLetterComponent
-          letter="B"
-          list={this.props.list}
-          dispatch={this.props.dispatch}
-        />
       </div>)
   }
 }

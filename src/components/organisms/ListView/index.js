@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as bookActions from '../../../actions/book'
 
 import Book from '../../molecules/Book'
 
@@ -21,7 +22,16 @@ class ListView extends Component {
   }
 
   getNextLetter () {
-    bookActions.listForLetter(this.props.dispatch, this.props.letter)
+    let i
+    const { books, dispatch, loading } = this.props
+    if (loading) return null
+    for (i = 'B'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
+      const letter = String.fromCharCode(i)
+      if (!books[letter]) {
+        return bookActions.listForLetter(dispatch, letter)
+      }
+    }
+    return null
   }
 
   handleScroll (event) {
@@ -33,7 +43,6 @@ class ListView extends Component {
   render () {
     const { availableHeight, scrollTop } = this.state
     const { list, rowHeight } = this.props
-
     const numRows = list.length
     const totalHeight = rowHeight * numRows
     const startIndex = Math.floor(scrollTop / rowHeight)
@@ -65,7 +74,7 @@ class ListView extends Component {
             paddingTop: startIndex * rowHeight
           }}
         >
-          <ul>{items}</ul>
+          {items}
           {this.props.children}
         </div>
       </div>
@@ -78,6 +87,7 @@ ListView.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  list: state.book.list
+  books: state.book.list,
+  loading: state.book.loading
 })
 export default connect(mapStateToProps)(ListView)
