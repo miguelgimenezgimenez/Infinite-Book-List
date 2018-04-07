@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import LazyLoad from 'react-lazyload'
-import Book from '../../organisms/Book'
+import NextLetterComponent from '../../organisms/NextLetterComponent'
 import ListView from '../../organisms/ListView/index'
+import * as bookActions from '../../../actions/book'
 
 const getBookList = (bookList) => {
   let i
@@ -21,6 +22,7 @@ const getBookList = (bookList) => {
 
 class Home extends Component {
   componentDidMount () {
+    bookActions.listForLetter(this.props.dispatch, 'A')
   }
 
   render () {
@@ -29,7 +31,13 @@ class Home extends Component {
       <div >
         {list.length > 0 &&
         <ListView list={list} rowHeight={30} >
-          {}
+          <LazyLoad height={1000}>
+            <NextLetterComponent
+              letter="B"
+              list={this.props.list}
+              dispatch={this.props.dispatch}
+            />
+          </LazyLoad>
         </ListView>
         }
 

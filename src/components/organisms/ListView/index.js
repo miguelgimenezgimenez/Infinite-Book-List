@@ -9,8 +9,8 @@ class ListView extends Component {
     super(props)
     this.state = {
       availableHeight: 0,
-      scrollTop: 0,
-      maxHeight: this.props.list.length * this.props.rowHeight
+      scrollTop: 0
+      // maxHeight: this.props.list.length * this.props.rowHeight
     }
   }
 
@@ -23,7 +23,7 @@ class ListView extends Component {
 
   handleScroll (event) {
     this.setState({
-      scrollTop: Math.min(event.target.scrollTop, this.state.maxHeight)
+      scrollTop: event.target.scrollTop
     })
   }
 
@@ -50,7 +50,7 @@ class ListView extends Component {
             >
               {`${index} ${list[index].title}`}
             </div>
-          </li>)
+                     </li>)
         } else {
           break
         }
@@ -81,7 +81,4 @@ ListView.propTypes = {
   rowHeight: PropTypes.number.isRequired
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  list: state.book.list[ownProps.letter]
-})
-export default connect(mapStateToProps)(ListView)
+export default ListView
