@@ -30,20 +30,12 @@ class ListView extends Component {
   render () {
     const { availableHeight, scrollTop } = this.state
     const { list, rowHeight } = this.props
-    if (!list) {
-      return (<div
-        onScroll={e => this.handleScroll(e)}
-        style={{ height: '100vh', overflowY: 'scroll' }}
-        ref={node => (this.node = node)}
-      />)
-    }
 
     const numRows = list.length
     const totalHeight = rowHeight * numRows
     const startIndex = Math.floor(scrollTop / rowHeight)
     const endIndex = startIndex + Math.ceil(availableHeight / rowHeight)
     const items = []
-    console.log(list.length)
     let index = startIndex
     if (list.length) {
       while (index < endIndex) {
@@ -78,7 +70,7 @@ class ListView extends Component {
           }}
         >
           <ul>{items}</ul>
-
+          {this.props.children}
         </div>
       </div>
     )

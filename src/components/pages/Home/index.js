@@ -4,43 +4,35 @@ import LazyLoad from 'react-lazyload'
 import Book from '../../organisms/Book'
 import ListView from '../../organisms/ListView/index'
 
+const getBookList = (bookList) => {
+  let i
+  let list = []
+  for (i = 'A'.charCodeAt(0); i < 'Z'.charCodeAt(0); i++) {
+    const letter = String.fromCharCode(i)
+    if (bookList) {
+      if (bookList[letter]) list = list.concat(bookList[letter])
+      else return list
+    } else {
+      list.push(letter)
+    }
+  }
+  return list
+}
+
 class Home extends Component {
   componentDidMount () {
   }
 
   render () {
+    const list = getBookList(this.props.list)
     return (
       <div >
-        {this.props.list.A && <ListView letter="A" rowHeight={30} />}
-        {/* {this.props.list.B && <ListView letter="B" rowHeight={30} />} */}
-        {/* <Book letter="A" /> */}
-        <LazyLoad height={28000} offset={1000} >
-          <Book letter="A" />
-        </LazyLoad>
-        {/* <LazyLoad height={2800} offset={100} >
-          <Book letter="B" />
-        </LazyLoad> */}
-        {/* <LazyLoad height={2800} offset={100}>
-          <Book letter="C" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="D" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="E" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="F" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="G" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="H" />
-        </LazyLoad>
-        <LazyLoad height={2800} offset={100}>
-          <Book letter="I" />
-        </LazyLoad> */}
+        {list.length > 0 &&
+        <ListView list={list} rowHeight={30} >
+          {}
+        </ListView>
+        }
+
       </div>)
   }
 }
