@@ -14,20 +14,21 @@
   "dependencies": {
     "consolidate": "^0.15.1",
     "express": "^4.16.3",
+    "lodash.get": "^4.4.2",
     "material-ui": "^0.20.0",
     "mongoose": "^5.0.12",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-css-loaders": "^0.0.5",
     "react-dom": "^16.2.0",
     "react-lazyload": "^2.3.0",
     "react-redux": "5.0.7",
     "react-router-dom": "^4.2.2",
+    "react-swipeable-views": "^0.12.13",
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
     "request": "^2.85.0",
-    "selenium-webdriver": "3.5.0",
-    "swig": "^1.4.2",
-    "xml2js": "^0.4.19"
+    "swig": "^1.4.2"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -52,7 +53,6 @@
     "node-sass": "4.7.2",
     "nodemon": "^1.17.2",
     "parallelshell": "^3.0.2",
-    "react-hot-loader": "^4.0.1",
     "sass-loader": "6.0.6",
     "standard": "10.0.3",
     "style-loader": "0.19.1",
@@ -60,8 +60,6 @@
     "stylelint-config-standard": "18.0.0",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "3.7.1",
-    "webpack-cli": "^2.0.13",
-    "webpack-dev-server": "2.9.2",
-    "webpack-serve": "^0.3.1"
+    "webpack-cli": "^2.0.13"
   }
 }

@@ -1,30 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { withRouter } from 'react-router-dom'
+
 import Navbar from './organisms/Navbar'
 
 // import colors from '../utils/colors'
 import './Layout.scss'
 
-const muiTheme = getMuiTheme({
-//   palette: {
-//     primary1Color: colors.primary,
-//     primary2Color: colors.secondary,
-//     textColor: colors.white
-//   },
-//   appBar: {
-//     height: 50
-//   }
-})
+const muiTheme = getMuiTheme({})
 
-const Layout = props => (
-  <MuiThemeProvider muiTheme={muiTheme}>
-    <div>
-      <Navbar />
-      <div >{props.children}</div>
+class Layout extends Component {
+  render () {
+    return (
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div>
+          <Navbar />
+          <div >{this.props.children}</div>
+        </div>
+      </MuiThemeProvider>)
+  }
+}
 
-    </div>
-  </MuiThemeProvider>
-)
-
-export default Layout
+export default withRouter(Layout)
