@@ -8,24 +8,24 @@ import { createList } from '../../../../utils/createList'
 
 class ListPage extends Component {
   componentDidMount () {
-    const letter = this.props.match.params.letter || 'A'
-    console.log(letter)
-    this.props.action.listForLetter(this.props.dispatch, letter)
+    const query = this.props.match.params.query || 'A'
+    this.props.action(this.props.dispatch, query)
   }
 
   componentDidUpdate (prevProps) {
-    const { letter } = this.props.match.params
-    if (letter !== prevProps.match.params.letter) {
-      this.props.action.listForLetter(this.props.dispatch, letter)
+    const { query } = this.props.match.params
+    if (query !== prevProps.match.params.query) {
+      this.props.action(this.props.dispatch, query)
     }
   }
 
   render () {
     const { list, type, action } = this.props
     let aggregatedList = createList(list)
-    const { letter } = this.props.match.params
-    if (letter) {
-      aggregatedList = list[letter] || []
+    console.log(aggregatedList)
+    const { query } = this.props.match.params
+    if (query) {
+      aggregatedList = list[query] || []
     }
     return (
       <div >

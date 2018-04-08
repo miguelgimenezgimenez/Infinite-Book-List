@@ -28,7 +28,7 @@ class ListView extends Component {
     for (i = 'B'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
       const letter = String.fromCharCode(i)
       if (!storeList[letter]) {
-        return this.props.action.listForLetter(dispatch, letter)
+        return this.props.action(dispatch, letter)
       }
     }
     return null
@@ -62,8 +62,7 @@ class ListView extends Component {
     }
     // Lazy load the next set of items
     const { loading, match } = this.props
-    console.log(match)
-    if (list.length - endIndex < 100 && !loading) {
+    if (list.length - endIndex < 100 && !loading && !match.query) {
       this.getNextLetter()
     }
     return (
