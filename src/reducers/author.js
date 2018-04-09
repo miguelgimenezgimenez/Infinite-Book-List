@@ -2,11 +2,14 @@
 const INITIAL_STATE = {
   error: null,
   list: {},
-  loading: false
+  loading: false,
+  current: {}
 }
 const setError = (state, error) => ({ ...state, error, loading: false })
 
 const setLoading = (state, loading) => ({ ...state, loading })
+
+const setCurrent = (state, current) => ({ ...state, current, loading: false })
 
 const setAuthorList = (state, data) => {
   const { authorList, type } = data

@@ -33,7 +33,7 @@ class Item extends Component {
     return (
 
       <ListItem
-        onClick={() => this.handleClick(item.name)}
+        onClick={() => this.handleClick(item.name || item.title)}
         primaryText={primaryText}
         secondaryText={secondaryText}
       />

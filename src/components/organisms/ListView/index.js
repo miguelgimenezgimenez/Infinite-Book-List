@@ -4,7 +4,7 @@ import { List } from 'material-ui/List'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import Item from '../../molecules/Item'
+import Item from '../../atoms/Item'
 
 class ListView extends Component {
   constructor (props) {
@@ -41,11 +41,12 @@ class ListView extends Component {
   }
 
   render () {
-    // Render only the items that are in the viewport by adding them to an array
     const { availableHeight, scrollTop } = this.state
     const { list, rowHeight } = this.props
     const numRows = list.length
     const totalHeight = rowHeight * numRows
+
+    // Render only the items that are in the viewport by adding them to an array
     const startIndex = Math.floor(scrollTop / rowHeight)
     const endIndex = startIndex + Math.ceil(availableHeight / rowHeight)
     const items = []

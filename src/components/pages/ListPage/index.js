@@ -9,7 +9,6 @@ import { createList } from '../../../../utils/createList'
 class ListPage extends Component {
   componentDidMount () {
     const query = this.props.match.params.query || 'A'
-    console.log(this.props)
     this.props.action(this.props.dispatch, query)
   }
 

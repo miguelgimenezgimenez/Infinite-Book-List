@@ -15,7 +15,6 @@ class Layout extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     const slideIndex = link.indexOf(this.props.location.pathname.split('/')[1])
-    console.log(slideIndex, ' dsdfdsfds', prevState.slideIndex, this.state.slideIndex)
     if (prevState.slideIndex !== slideIndex) {
       // eslint-disable-next-line
       this.setState({ slideIndex })
@@ -32,7 +31,6 @@ class Layout extends Component {
   render () {
     const { slideIndex } = this.state
     const currentPos = link[slideIndex]
-    console.log(slideIndex)
     return (
       <div>
         <Tabs

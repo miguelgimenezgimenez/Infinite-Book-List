@@ -19,7 +19,7 @@ class SubHeader extends Component {
         <div className={style.alphabet}>
           {alphabet.map(letter => (
             <NavLink
-              style={{ color: 'black' }}
+              style={{ color: 'white' }}
               key={letter}
               activeStyle={{
                 fontWeight: 'bold',
@@ -32,8 +32,8 @@ class SubHeader extends Component {
       )
     }
     return (
-      <div className={style.alphabet}>
-        <NavigationBefore color="white" onClick={() => this.props.history.goBack()} />
+      <div onClick={() => this.props.history.goBack()} className={style.alphabet}>
+        <NavigationBefore className={style.back} color="white" />
       </div>)
   }
 }
