@@ -62,7 +62,7 @@ class ListView extends Component {
     }
     // Lazy load the next set of items
     const { loading, match } = this.props
-    if (list.length - endIndex < 100 && !loading && !match.query) {
+    if (list.length - endIndex < 100 && !loading && !match.params.query) {
       this.getNextLetter()
     }
     return (

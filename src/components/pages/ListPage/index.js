@@ -9,6 +9,7 @@ import { createList } from '../../../../utils/createList'
 class ListPage extends Component {
   componentDidMount () {
     const query = this.props.match.params.query || 'A'
+    console.log(this.props)
     this.props.action(this.props.dispatch, query)
   }
 
@@ -22,7 +23,6 @@ class ListPage extends Component {
   render () {
     const { list, type, action } = this.props
     let aggregatedList = createList(list)
-    console.log(aggregatedList)
     const { query } = this.props.match.params
     if (query) {
       aggregatedList = list[query] || []

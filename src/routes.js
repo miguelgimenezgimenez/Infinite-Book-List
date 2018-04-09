@@ -31,7 +31,7 @@ export default (
     <Route
       path="/author/:query?"
       component={() =>
-        <ListPage type="author" action={bookActions.listForAuthor} />}
+        <ListPage type="book" action={bookActions.listForAuthor} />}
     />
     <Route
       path="/genre/:query?"

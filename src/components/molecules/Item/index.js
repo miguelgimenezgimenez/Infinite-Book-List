@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { ListItem } from 'material-ui/List'
+import { NavLink, withRouter } from 'react-router-dom'
 
-export default class Item extends Component {
+class Item extends Component {
+  handleClick (e) {
+    const { type } = this.props
+    this.props.history.push(`/${type}/${e}`)
+  }
+
   render () {
     const { item, type } = this.props
 
@@ -27,9 +33,11 @@ export default class Item extends Component {
     return (
 
       <ListItem
+        onClick={() => this.handleClick(item.name)}
         primaryText={primaryText}
         secondaryText={secondaryText}
       />
     )
   }
 }
+export default withRouter(Item)
