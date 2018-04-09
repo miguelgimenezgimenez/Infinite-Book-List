@@ -9,6 +9,23 @@
     "dev": "parallelshell 'webpack --watch' 'nodemon server.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "test"
+    ],
+    "coverageReporters": [
+      "html",
+      "text",
+      "text-summary"
+    ],
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ]
+  },
   "author": "Miguel Gimenez",
   "license": "ISC",
   "dependencies": {
@@ -49,6 +66,7 @@
     "eslint-plugin-standard": "3.0.1",
     "file-loader": "1.1.10",
     "html-webpack-plugin": "^3.1.0",
+    "jest": "^22.4.3",
     "json-loader": "0.5.7",
     "node-sass": "4.7.2",
     "nodemon": "^1.17.2",

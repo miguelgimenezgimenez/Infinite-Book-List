@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { ListItem } from 'material-ui/List'
-import { NavLink, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class Item extends Component {
-  handleClick (e) {
+  handleClick (item) {
     const { type } = this.props
-    this.props.history.push(`/${type}/${e}`)
+    this.props.history.push(`/${type}/${item}`)
   }
 
   render () {
