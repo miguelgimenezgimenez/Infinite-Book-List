@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node server.js",
     "build": "webpack --config ./webpack.config.prod.js/",
     "dev": "parallelshell 'webpack --watch' 'nodemon server.js'",
-    "test": "NODE_ENV=test nyc mocha src/test/**/*.js"
+    "test": "NODE_ENV=test jest src/tests/**/*.js"
   },
   "jest": {
     "collectCoverage": true,
@@ -21,14 +21,12 @@
       "html",
       "text",
       "text-summary"
-    ],
-    "setupFiles": [
-      "jest-localstorage-mock"
-    ]
+    ]    
   },
   "author": "Miguel Gimenez",
   "license": "ISC",
   "dependencies": {
+    "babel-jest": "^22.4.3",
     "consolidate": "^0.15.1",
     "express": "^4.16.3",
     "lodash.get": "^4.4.2",
@@ -38,7 +36,6 @@
     "react": "^16.2.0",
     "react-css-loaders": "^0.0.5",
     "react-dom": "^16.2.0",
-    "react-lazyload": "^2.3.0",
     "react-redux": "5.0.7",
     "react-router-dom": "^4.2.2",
     "react-swipeable-views": "^0.12.13",
@@ -73,7 +70,7 @@
     "node-sass": "4.7.2",
     "nodemon": "^1.17.2",
     "parallelshell": "^3.0.2",
-    "redux-mock-store": "^1.5.1",    
+    "redux-mock-store": "^1.5.1",
     "sass-loader": "6.0.6",
     "standard": "10.0.3",
     "style-loader": "0.19.1",

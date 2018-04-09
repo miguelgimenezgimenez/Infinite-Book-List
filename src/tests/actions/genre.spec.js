@@ -3,7 +3,7 @@
 import configureMockStore from 'redux-mock-store'
 import chai from 'chai'
 import fetchMock from 'fetch-mock'
-import * as bookActions from '../../actions/book'
+import * as genreActions from '../../actions/genre'
 
 const mockStore = configureMockStore()
 
@@ -15,25 +15,24 @@ const INITIAL_STATE = {
   loading: false
 }
 
-describe.only('Channel Actions', () => {
+describe.only('Genre Actions', () => {
   afterEach(() => {
     fetchMock.reset()
     fetchMock.restore()
   })
+  const genreList = [{ name: 'genre1' }, { name: 'genre2' }, { name: 'genre3' }, { name: 'genre4' }]
 
-  describe('add', () => {
+  describe('listForLetter', () => {
     const store = mockStore(INITIAL_STATE)
 
-    const body = { name: 'Youtube' }
-
     it('dispatches loading and add actions with correct output data', () => {
-      fetchMock.get('http://localhost:5050/book', { ...body }, getOptions(body, 'post'))
+      fetchMock.get('http://localhost:5050/genre/list?letter=A', genreList)
       const expectedActions = [
-        { type: 'CHANNEL_LOADING' },
-        { type: 'CHANNEL_ADDED', data: { name: 'Youtube' } }
+        { type: 'GENRE_LIST_LOADING' },
+        { type: 'GENRE_LIST_SUCCESS', data: genreList }
       ]
 
-      return channelActions.add(store.dispatch, body).then((res) => {
+      return genreActions.listForLetter(store.dispatch, 'A').then((res) => {
         store.getActions().should.deep.equal(expectedActions)
       })
     })
