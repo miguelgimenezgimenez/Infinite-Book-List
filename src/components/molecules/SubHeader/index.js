@@ -13,7 +13,8 @@ for (i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
 class SubHeader extends Component {
   render () {
     const { currentPos } = this.props
-    if (currentPos >= 0) {
+    // if i am in one of the tabs render the alphabet search
+    if (currentPos) {
       return (
         <div className={style.alphabet}>
           {alphabet.map(letter => (

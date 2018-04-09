@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Tabs, Tab } from 'material-ui/Tabs'
 import { withRouter } from 'react-router-dom'
-import { Subheader } from '../../molecules/SubHeader'
+import Subheader from '../../molecules/SubHeader'
 
 const link = ['books', 'authors', 'genres']
 
@@ -15,7 +15,8 @@ class Layout extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     const slideIndex = link.indexOf(this.props.location.pathname.split('/')[1])
-    if (prevState.slideIndex !== this.state.slideIndex && slideIndex < 0) {
+    console.log(slideIndex, ' dsdfdsfds', prevState.slideIndex, this.state.slideIndex)
+    if (prevState.slideIndex !== slideIndex) {
       // eslint-disable-next-line
       this.setState({ slideIndex })
     }
@@ -31,6 +32,7 @@ class Layout extends Component {
   render () {
     const { slideIndex } = this.state
     const currentPos = link[slideIndex]
+    console.log(slideIndex)
     return (
       <div>
         <Tabs
