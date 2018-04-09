@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
 import { Tabs, Tab } from 'material-ui/Tabs'
-import { withRouter, NavLink } from 'react-router-dom'
-import style from './style.scss'
-import NavigationBefore from 'material-ui/svg-icons/navigation/arrow-back';
+import { withRouter } from 'react-router-dom'
+import { Subheader } from '../../molecules/SubHeader'
 
-const alphabet = []
-let i
-for (i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
-  const letter = String.fromCharCode(i)
-  alphabet.push(letter)
-}
 const link = ['books', 'authors', 'genres']
 
 class Layout extends Component {
@@ -17,6 +10,14 @@ class Layout extends Component {
     super(props)
     this.state = {
       slideIndex: link.indexOf(this.props.location.pathname.split('/')[1])
+    }
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    const slideIndex = link.indexOf(this.props.location.pathname.split('/')[1])
+    if (prevState.slideIndex !== this.state.slideIndex && slideIndex < 0) {
+      // eslint-disable-next-line
+      this.setState({ slideIndex })
     }
   }
 
@@ -28,8 +29,8 @@ class Layout extends Component {
   }
 
   render () {
-    
-    const index = this.state.slideIndex
+    const { slideIndex } = this.state
+    const currentPos = link[slideIndex]
     return (
       <div>
         <Tabs
@@ -41,28 +42,7 @@ class Layout extends Component {
           <Tab label="Genres" value={2} />
 
         </Tabs>
-       
-          <div  >
-        {link.indexOf(this.props.location.pathname.split('/')[1]) >=0 ?
-              <div className={style.alphabet}>
-                  {alphabet.map(letter => (
-                    <NavLink
-                      style={{ color: 'black' }}
-                      key={letter}
-                      activeStyle={{
-                        fontWeight: 'bold',
-                        color: 'red'
-                      }}
-                      to={`/${link[index]}/${letter}`}
-                    >{letter}
-                    </NavLink>))}
-
-                </div>:
-          <div className={style.alphabet}>
-          <NavigationBefore color="white" onClick={()=>this.props.history.goBack()}/>
-          </div>
-           }
-           </div>
+        <Subheader currentPos={currentPos} />
       </div>
     )
   }

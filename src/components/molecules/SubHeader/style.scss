@@ -1,0 +1,17 @@
+.alphabet {
+    display: flex;
+    justify-content: space-around;
+    background-color: #51BAD1;
+    border: solid 1px gray;
+    color:white;
+    padding: 10px;
+    align-items: center;
+    height: 20px;
+}
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+}
