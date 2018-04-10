@@ -22,6 +22,7 @@ export default class DateFilter extends Component {
   }
 
   setFilter (startDate, endDate) {
+    console.log(startDate, endDate)
     this.props.setFilter(list => list.filter(item => item.publishedAt > startDate && item.publishedAt < endDate))
   }
 

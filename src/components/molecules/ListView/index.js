@@ -92,6 +92,8 @@ ListView.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  storeList: state[ownProps.type].list
+  storeList: state[ownProps.type].list,
+  loading: state[ownProps.type].loading
+
 })
 export default withRouter(connect(mapStateToProps)(ListView))

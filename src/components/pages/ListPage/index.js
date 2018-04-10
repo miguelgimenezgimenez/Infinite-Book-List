@@ -33,7 +33,6 @@ class ListPage extends Component {
   }
 
   render () {
-    console.log(this.state)
     const { list, type, action } = this.props
 
     // Generate Complete List
@@ -56,7 +55,6 @@ class ListPage extends Component {
     let [, route, name] = url.split('/')
     name ? name = name.replace(/_/i, ' ').toUpperCase() : name = ''
     route = route.toUpperCase()
-
     return (
       <div >
         <h3>{`${route}  : ${name}`}</h3>
@@ -69,8 +67,8 @@ class ListPage extends Component {
             setFilter={filterFunction => this.setFilter(filterFunction)}
           />
         }
-        {aggregatedList.length > 0 &&
-          <ListView list={aggregatedList} type={type} action={action} rowHeight={30} />}
+
+        <ListView list={aggregatedList} type={type} action={action} rowHeight={30} />
         { this.props.loading && <BarLoader color="blue" size={22} />}
 
       </div>)
