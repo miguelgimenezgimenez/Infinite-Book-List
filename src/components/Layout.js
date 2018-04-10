@@ -5,11 +5,14 @@ import { withRouter } from 'react-router-dom'
 
 import Navbar from './organisms/Navbar'
 
-// import colors from '../utils/colors'
-import './Layout.scss'
+import './GlobalStyles.scss'
 
-const muiTheme = getMuiTheme({})
+const muiTheme = getMuiTheme({
+  palette: {
+    // primary1Color: '#001B1F'
+  }
 
+})
 class Layout extends Component {
   render () {
     return (

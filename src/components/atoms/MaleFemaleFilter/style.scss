@@ -1,0 +1,14 @@
+@import '../../GlobalStyles.scss';
+
+.container {
+    display: flex;
+    border: 1px solid gray;
+    align-items: center;
+    justify-content: center;
+    color:gray;
+    height: 50px;
+}
+
+.filter {
+    display: flex;
+}

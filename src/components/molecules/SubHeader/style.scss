@@ -1,7 +1,9 @@
+@import '../../GlobalStyles.scss';
+
 .alphabet {
     display: flex;
     justify-content: space-around;
-    background-color: #51BAD1;
+    background-color: $primary-color;
     border: solid 1px gray;
     color:white;
     padding: 10px;
