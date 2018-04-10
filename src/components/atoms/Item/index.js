@@ -10,13 +10,13 @@ class Item extends Component {
 
   render () {
     const { item, type } = this.props
-
     let primaryText
     let secondaryText
     switch (type) {
       case 'book':
         primaryText = `${item.title}`
-        secondaryText = item.author.replace(/_/g, ' ')
+        secondaryText = `${item.author.replace(/_/g, ' ')}   - Genre: ${item.genre.toUpperCase()}
+        `
         break
       case 'author':
         primaryText = item.name.replace(/_/g, ' ')
@@ -36,6 +36,8 @@ class Item extends Component {
         onClick={() => this.handleClick(item.name || item.title)}
         primaryText={primaryText}
         secondaryText={secondaryText}
+        secondaryTextLines={2}
+
       />
     )
   }

@@ -15,7 +15,7 @@ const INITIAL_STATE = {
   loading: false
 }
 
-describe.only('Channel Actions', () => {
+describe.only('Book Actions', () => {
   afterEach(() => {
     fetchMock.reset()
     fetchMock.restore()

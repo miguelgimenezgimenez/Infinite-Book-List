@@ -5,6 +5,7 @@ import { BarLoader } from 'react-css-loaders'
 import ListView from '../../organisms/ListView'
 
 import { createList } from '../../../../utils/createList'
+import FilterComponent from '../../atoms/FilterComponent/index'
 
 class ListPage extends Component {
   componentDidMount () {
@@ -20,19 +21,17 @@ class ListPage extends Component {
   }
 
   render () {
-    const { list, type, action } = this.props
+    const { list } = this.props
     let aggregatedList = createList(list)
     const { query } = this.props.match.params
     if (query) {
       aggregatedList = list[query] || []
     }
+
     return (
       <div >
-        {aggregatedList.length > 0 &&
-        <ListView list={aggregatedList} type={type} action={action} rowHeight={30} />}
-
+        <FilterComponent aggregatedList={aggregatedList} {...this.props} />
         { this.props.loading && <BarLoader color="blue" />}
-
       </div>)
   }
 }

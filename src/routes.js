@@ -5,7 +5,7 @@ import ListPage from './components/pages/ListPage'
 import * as bookActions from './actions/book'
 import * as authorActions from './actions/author'
 import * as genreActions from './actions/genre'
-import SelectedElementPage from './components/pages/SelectedElementPage/index'
+import ElementList from './components/pages/ElementList'
 
 export default (
   <Switch>
@@ -32,12 +32,12 @@ export default (
     <Route
       path="/author/:query"
       component={() =>
-        <SelectedElementPage type="book" action={bookActions.listForAuthor} />}
+        <ElementList type="book" action={bookActions.listForAuthor} />}
     />
     <Route
       path="/genre/:query"
       component={() =>
-        <SelectedElementPage type="book" action={bookActions.listForGenre} />}
+        <ElementList type="book" action={bookActions.listForGenre} />}
     />
 
   </Switch>
