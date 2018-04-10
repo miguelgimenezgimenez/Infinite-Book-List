@@ -21,11 +21,12 @@ export default class FilterComponent extends Component {
       return this.setState({ [gender]: true, [otherGender]: false })
     }
     // check if both checkboxes are deactivated or just one
-    this.state.gender ? this.props.setFilter(null)
+
+    this.state[gender] ? this.props.setFilter(null)
       : this.props.setFilter(list =>
         list.filter(item => item.gender ===
           gender))
-    return this.setState({ [gender]: !this.state.gender })
+    return this.setState({ [gender]: !this.state[gender] })
   }
 
   render () {

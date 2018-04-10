@@ -33,6 +33,7 @@ class ListPage extends Component {
   }
 
   render () {
+    console.log(this.state)
     const { list, type, action } = this.props
 
     // Generate Complete List

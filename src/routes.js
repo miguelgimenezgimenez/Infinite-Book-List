@@ -5,7 +5,6 @@ import ListPage from './components/pages/ListPage'
 import * as bookActions from './actions/book'
 import * as authorActions from './actions/author'
 import * as genreActions from './actions/genre'
-import FilterPage from './components/pages/AllBooksPage'
 
 export default (
   <Switch>
@@ -17,12 +16,12 @@ export default (
     <Route
       path="/books/:query?"
       component={() =>
-        <FilterPage type="book" action={bookActions.listForLetter} />}
+        <ListPage type="book" action={bookActions.listForLetter} />}
     />
     <Route
       path="/authors/:query?"
       component={() =>
-        <FilterPage type="author" action={authorActions.listForLetter} />}
+        <ListPage type="author" action={authorActions.listForLetter} />}
     />
     <Route
       path="/genres/:query?"
