@@ -7,7 +7,7 @@
     },
     "production": {
         "mongodbUrl": "mongodb://admin:3h2p2t1p@ds227989-a0.mlab.com:27989,ds227989-a1.mlab.com:27989/casumo?replicaSet=rs-ds227989",
-        "API_URL": "http://localhost:5050"
+        "API_URL": "http://46.101.91.79:5050/"
     }
 
 }
