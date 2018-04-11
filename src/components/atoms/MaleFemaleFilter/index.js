@@ -36,11 +36,13 @@ export default class FilterComponent extends Component {
         <div className={style.filter}>
           <Checkbox
             label="Male"
+            style={{ margin: 30 }}
             checked={this.state.male}
             onCheck={() => this.updateCheck('male')}
           />
           <Checkbox
             label="Female"
+            style={{ margin: 30 }}
             checked={this.state.female}
             onCheck={() => this.updateCheck('female')}
           />

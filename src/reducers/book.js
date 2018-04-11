@@ -17,12 +17,16 @@ const setBookList = (state, data) => {
   return { ...state, list, loading: false }
 }
 
+const setCurrentBook = (state, current) => ({ ...state, current, loading: false })
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'BOOK_LIST_LOADING':
+    case 'BOOK_LOADING':
       return setLoading(state, true)
     case 'BOOK_LIST_SUCCESS':
       return setBookList(state, action.data)
+    case 'BOOK_CURRENT_SUCCESS':
+      return setCurrentBook(state, action.data)
     case 'BOOK_LIST_ERROR':
       return setError(state, action.error)
 

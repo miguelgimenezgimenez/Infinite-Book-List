@@ -62,8 +62,9 @@ class ListView extends Component {
       }
     }
     // Lazy load the next set of items
+    const shouldLazyLoad = this.props.isBeingFiltered || list.length
     const { loading, match } = this.props
-    if (list.length - endIndex < 100 && !loading && !match.params.query) {
+    if (shouldLazyLoad && list.length - endIndex < 100 && !loading && !match.params.query) {
       this.getNextLetter()
     }
     return (
@@ -78,10 +79,10 @@ class ListView extends Component {
             paddingTop: startIndex * rowHeight
           }}
         >
-
+          
           <List>{items}</List>
-          {this.props.children}
         </div>
+        {(!loading && !items.length) && <h1>No Matches </h1>}
       </div>
     )
   }

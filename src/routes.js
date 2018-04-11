@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
-
+import BookPage from './components/pages/BookPage'
 import ListPage from './components/pages/ListPage'
 import * as bookActions from './actions/book'
 import * as authorActions from './actions/author'
@@ -37,6 +37,10 @@ export default (
       path="/genre/:query"
       component={() =>
         <ListPage type="book" action={bookActions.listForGenre} />}
+    />
+    <Route
+      path="/book/:title"
+      component={BookPage}
     />
 
   </Switch>

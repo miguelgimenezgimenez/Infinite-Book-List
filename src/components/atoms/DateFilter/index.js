@@ -2,6 +2,10 @@
 import React, { Component } from 'react'
 import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
+import style from './style.scss'
+
+const defaultDate = new Date()
+defaultDate.setFullYear(defaultDate.getFullYear() - 100)
 
 export default class DateFilter extends Component {
   constructor (props) {
@@ -18,31 +22,30 @@ export default class DateFilter extends Component {
   }
 
   setDate (e, date, key) {
-    this.setState({ [key]: date })
+    this.setState({ [key]: date.getFullYear() })
   }
 
   setFilter (startDate, endDate) {
-    console.log(startDate, endDate)
-    this.props.setFilter(list => list.filter(item => item.publishedAt > startDate && item.publishedAt < endDate))
+    this.props.setFilter(list => list.filter(item => item.year >= startDate && item.year <= endDate))
   }
 
   render () {
     const { startDate, endDate } = this.state
-
     return (
-      <div>
+      <div className={style.container}>
         <DatePicker
           onChange={(e, date) => { this.setDate(e, date, 'startDate') }}
           hintText="From Date"
-          mode="landscape"
+          openToYearSelection
         />
         <DatePicker
           onChange={(e, date) => { this.setDate(e, date, 'endDate') }}
           hintText="To Date"
-          mode="landscape"
+          openToYearSelection
         />
 
         <RaisedButton
+          style={{ height: 40, marginLeft: 30 }}
           disabled={!startDate || !endDate}
           secondary
           label="Filter"
@@ -50,8 +53,9 @@ export default class DateFilter extends Component {
         />
 
         <RaisedButton
+          style={{ height: 40, marginLeft: 30 }}
           secondary
-          label="Clear Filter"
+          label="Clear"
           onClick={() => this.clearFilter()}
         />
       </div>

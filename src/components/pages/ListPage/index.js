@@ -5,6 +5,8 @@ import { BarLoader } from 'react-css-loaders'
 import ListView from '../../molecules/ListView'
 import MaleFemaleFilter from '../../atoms/MaleFemaleFilter'
 import DateFilter from '../../atoms/DateFilter'
+import style from './style.scss'
+import HalloweenFilter from '../../atoms/HalloweenFilter'
 
 import { createList } from '../../../../utils/createList'
 
@@ -53,24 +55,31 @@ class ListPage extends Component {
     // Get titles for List Page
     const { url } = this.props.match
     let [, route, name] = url.split('/')
-    name ? name = name.replace(/_/i, ' ').toUpperCase() : name = ''
+    name ? name = `:${name.replace(/_/i, ' ').toUpperCase()}` : name = ''
     route = route.toUpperCase()
     return (
       <div >
-        <h3>{`${route}  : ${name}`}</h3>
+        <h3>{`${route}   ${name}`}</h3>
 
         {type === 'author' &&
-          <MaleFemaleFilter setFilter={filterFunction => this.setFilter(filterFunction)} />}
+        <div>
+          <MaleFemaleFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
+        </div>
+        }
 
         {type === 'book' &&
+        <div>
           <DateFilter
             setFilter={filterFunction => this.setFilter(filterFunction)}
           />
+          <HalloweenFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
+        </div>
         }
 
-        <ListView list={aggregatedList} type={type} action={action} rowHeight={30} />
-        { this.props.loading && <BarLoader color="blue" size={22} />}
-
+        <ListView list={aggregatedList} type={type} action={action} rowHeight={30} isBeingFiltered={!!filterFn} />
+        {this.props.loading &&
+          <BarLoader className={style.loader} color="#EC5281" size={22} />
+        }
       </div>)
   }
 }
