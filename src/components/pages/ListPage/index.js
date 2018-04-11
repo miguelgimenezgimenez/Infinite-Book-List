@@ -55,7 +55,7 @@ class ListPage extends Component {
     // Get titles for List Page
     const { url } = this.props.match
     let [, route, name] = url.split('/')
-    name ? name = `:${name.replace(/_/i, ' ').toUpperCase()}` : name = ''
+    name ? name = `:${name.replace(/_/g, ' ').toUpperCase()}` : name = ''
     route = route.toUpperCase()
     return (
       <div >
