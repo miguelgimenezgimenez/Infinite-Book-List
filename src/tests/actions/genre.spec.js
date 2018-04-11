@@ -28,7 +28,7 @@ describe.only('Genre Actions', () => {
     it('dispatches loading and add actions with correct output data', () => {
       fetchMock.get('http://localhost:5050/genre/list?letter=A', genreList)
       const expectedActions = [
-        { type: 'GENRE_LIST_LOADING' },
+        { type: 'GENRE_LOADING' },
         { type: 'GENRE_LIST_SUCCESS', data: genreList }
       ]
 

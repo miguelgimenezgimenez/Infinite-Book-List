@@ -12,7 +12,9 @@ chai.should()
 const INITIAL_STATE = {
   error: null,
   list: {},
-  loading: false
+  loading: false,
+  current: {}
+
 }
 
 describe.only('Book Actions', () => {
@@ -28,7 +30,7 @@ describe.only('Book Actions', () => {
     it('dispatches loading and add actions with correct output data', () => {
       fetchMock.get('http://localhost:5050/book/list?letter=A', bookList)
       const expectedActions = [
-        { type: 'BOOK_LIST_LOADING' },
+        { type: 'BOOK_LOADING' },
         { type: 'BOOK_LIST_SUCCESS', data: bookList }
       ]
 
@@ -43,7 +45,7 @@ describe.only('Book Actions', () => {
     it('dispatches loading and add actions with correct output data', () => {
       fetchMock.get('http://localhost:5050/book/authorList?author=StephenKing', bookList)
       const expectedActions = [
-        { type: 'BOOK_LIST_LOADING' },
+        { type: 'BOOK_LOADING' },
         { type: 'BOOK_LIST_SUCCESS', data: bookList }
       ]
 
@@ -58,7 +60,7 @@ describe.only('Book Actions', () => {
     it('dispatches loading and add actions with correct output data', () => {
       fetchMock.get('http://localhost:5050/book/genreList?genre=terror', bookList)
       const expectedActions = [
-        { type: 'BOOK_LIST_LOADING' },
+        { type: 'BOOK_LOADING' },
         { type: 'BOOK_LIST_SUCCESS', data: bookList }
       ]
 

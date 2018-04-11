@@ -2,14 +2,12 @@
 const INITIAL_STATE = {
   error: null,
   list: {},
-  loading: false,
-  current: {}
+  loading: false
+
 }
 const setError = (state, error) => ({ ...state, error, loading: false })
 
 const setLoading = (state, loading) => ({ ...state, loading })
-
-const setCurrent = (state, current) => ({ ...state, current, loading: false })
 
 const setAuthorList = (state, data) => {
   const { authorList, type } = data
@@ -21,13 +19,12 @@ const setAuthorList = (state, data) => {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'AUTHOR_LIST_LOADING':
+    case 'AUTHOR_LOADING':
       return setLoading(state, true)
     case 'AUTHOR_LIST_SUCCESS':
       return setAuthorList(state, action.data)
     case 'AUTHOR_LIST_ERROR':
       return setError(state, action.error)
-
     default:
       return state
   }

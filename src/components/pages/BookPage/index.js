@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card'
-import * as bookActions from '../../../actions/book'
+import { connect } from 'react-redux'
 
-export default class componentName extends Component {
+class BookPage extends Component {
   componentDidMount () {
-    bookActions.getBook(this.props.match.params.title)
+    this.props.action(this.props.dispatch, this.props.match.params.title)
   }
 
   render () {
@@ -31,3 +31,5 @@ export default class componentName extends Component {
     )
   }
 }
+
+export default connect()(BookPage)

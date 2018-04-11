@@ -2,8 +2,7 @@
 const INITIAL_STATE = {
   error: null,
   list: {},
-  loading: false,
-  current: {}
+  loading: false
 }
 const setError = (state, error) => ({ ...state, error, loading: false })
 
@@ -19,7 +18,7 @@ const setGenreList = (state, data) => {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'GENRE_LIST_LOADING':
+    case 'GENRE_LOADING':
       return setLoading(state, true)
     case 'GENRE_LIST_SUCCESS':
       return setGenreList(state, action.data)

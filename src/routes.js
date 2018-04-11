@@ -40,7 +40,7 @@ export default (
     />
     <Route
       path="/book/:title"
-      component={BookPage}
+      component={() => <BookPage action={bookActions.getBook} />}
     />
 
   </Switch>
