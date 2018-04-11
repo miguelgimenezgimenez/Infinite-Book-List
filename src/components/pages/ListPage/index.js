@@ -68,11 +68,14 @@ class ListPage extends Component {
         }
 
         {type === 'book' &&
-        <div>
+        <div className={style.filterContainer}>
           <DateFilter
+            className={style.dateFilter}
             setFilter={filterFunction => this.setFilter(filterFunction)}
           />
-          <HalloweenFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
+          {!query && <HalloweenFilter
+            setFilter={filterFunction => this.setFilter(filterFunction)}
+          />}
         </div>
         }
 

@@ -16,7 +16,7 @@ class Item extends Component {
       case 'book':
         primaryText = `${item.title}`
         secondaryText = `${item.author.replace(/_/g, ' ')}   - Genre: ${item.genre.toUpperCase()} 
-        - Date: ${item.year}
+        - Date: ${item.year || 'unknown'}
         `
         break
       case 'author':

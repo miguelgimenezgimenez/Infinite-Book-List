@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Card, CardHeader, CardTitle, CardText } from 'material-ui/Card'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import style from './style.scss'
 
 class BookPage extends Component {
   componentDidMount () {
@@ -8,28 +10,27 @@ class BookPage extends Component {
   }
 
   render () {
+    const { book } = this.props
     return (
-      <div >
+      <div className={style.container} >
         <Card >
           <CardHeader
-            title="URL Avatar"
-            subtitle="Subtitle"
-            // avatar="images/jsa-128.jpg"
+            title={book.author && book.author.replace(/_/g, ' ')}
+            avatar={book.imageUrl}
           />
           <CardTitle
-            title="Card title"
-            subtitle="Card subtitle"
+            title={book.title}
+            subtitle={book.genre}
           />
           <CardText >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec mattis pretium massa.Aliquam erat volutpat.Nulla facilisi.
-          Donec vulputate interdum sollicitudin.Nunc lacinia auctor quam sed pellentesque.
-          Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            {book.description}
           </CardText>
         </Card>
       </div>
     )
   }
 }
-
-export default connect()(BookPage)
+const mapStateToProps = state => ({
+  book: state.book.current
+})
+export default withRouter(connect(mapStateToProps)(BookPage))

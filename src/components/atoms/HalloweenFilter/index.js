@@ -16,9 +16,8 @@ export default class HalloweenFilter extends Component {
   render () {
     return (
       <div>
-
         <RaisedButton
-          style={{ height: 40 }}
+          style={{ height: 40, marginLeft: 120 }}
           primary
           color="black"
           label="Horror Books Published on Halloween"

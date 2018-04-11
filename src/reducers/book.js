@@ -27,6 +27,7 @@ export default (state = INITIAL_STATE, action) => {
       return setBookList(state, action.data)
     case 'BOOK_CURRENT_SUCCESS':
       return setCurrentBook(state, action.data)
+    case 'BOOK_CURRENT_ERROR':
     case 'BOOK_LIST_ERROR':
       return setError(state, action.error)
 

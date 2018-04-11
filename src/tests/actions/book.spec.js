@@ -24,6 +24,22 @@ describe.only('Book Actions', () => {
   })
   const bookList = [{ name: 'book1' }, { name: 'book2' }, { name: 'book3' }, { name: 'book4' }]
 
+  describe('getBook', () => {
+    const store = mockStore(INITIAL_STATE)
+
+    it('dispatches loading and add actions with correct output data', () => {
+      fetchMock.get('http://localhost:5050/book?title=HarryPotter', bookList[0])
+      const expectedActions = [
+        { type: 'BOOK_LOADING' },
+        { type: 'BOOK_CURRENT_SUCCESS', data: bookList[0] }
+      ]
+
+      return bookActions.getBook(store.dispatch, 'HarryPotter').then((res) => {
+        store.getActions().should.deep.equal(expectedActions)
+      })
+    })
+  })
+
   describe('listForLetter', () => {
     const store = mockStore(INITIAL_STATE)
 

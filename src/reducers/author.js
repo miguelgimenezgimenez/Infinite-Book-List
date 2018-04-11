@@ -3,7 +3,6 @@ const INITIAL_STATE = {
   error: null,
   list: {},
   loading: false
-
 }
 const setError = (state, error) => ({ ...state, error, loading: false })
 
