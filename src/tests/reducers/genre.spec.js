@@ -27,7 +27,7 @@ describe.only('Genre Reducer', () => {
     })
     it('should append items to the list', () => {
       const firstState = { ...INITIAL_STATE, list: { T: genreList } }
-      const updatedState = { ...INITIAL_STATE, list: { T: genreList }, L: genreListL }
+      const updatedState = { ...INITIAL_STATE, list: { T: genreList, L: genreListL } }
       GenreReducer(firstState, { type: 'GENRE_LIST_SUCCESS', data: dataL }).should.deep.equal(updatedState)
     })
 

@@ -7,12 +7,8 @@ import Navbar from './organisms/Navbar'
 
 import './GlobalStyles.scss'
 
-const muiTheme = getMuiTheme({
-  palette: {
-    // primary1Color: '#001B1F'
-  }
+const muiTheme = getMuiTheme({})
 
-})
 class Layout extends Component {
   render () {
     return (
