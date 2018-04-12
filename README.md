@@ -69,7 +69,7 @@ should be rendering , and it will push it to another array of elements which wil
 
 Since I spent a lot of time scraping , I kind of rushed to create the frontend project which is what I should have focused , so the code quality has a lot of room for improvement.
 
-There is a lot more of testing to be done, and like I said, if I hadnt rushed I think I couldve done much better.
+There is a lot more of testing and proptypes validation to be done, and like I said, if I hadnt rushed I think I couldve done much better.
 
 **I accidentally erased The books starting with letter S from the db (just so you know)**
 
