@@ -66,30 +66,35 @@ To solve this problem I decided to create a view list component , which given an
 of the viewport, index the elements , and by listening to the scroll position, the component would calculate the index number of the elements that
 should be rendering , and it will push it to another array of elements which will then be rendered by React.
 
-## FUNCTIONALITY:
+Since I spent a lot of time scraping , I kind of rushed to create the frontend project which is what I should have focused , so the code quality has a lot of room for improvement.
+Also I am currently writing component tests with Enzyme.
 
-# Alphabetical Search :
+Thanks and feedback is appreciated if I am not selected.
+
+# FUNCTIONALITY:
+
+### Alphabetical Search :
 
 There are 3 tabs available, All books , Authors , and Genres.
 When I am in one of this tabs , an subheader with an alphabet list will appear, giving the functionality of filtering any of the 
 current fields I am im by letter.
 
-# Date Search:
+### Date Search:
 
 When the list being rendered is a book list , I can filter the list by published data by giving a range of dates in the date picker.
 
-# Male / Female :
+### Male / Female :
 
 When the list is an author list, I can filter the authors by selecting male or female from the checkbox.
 
-# Halloween Filter:
+### Halloween Filter:
 
 When the list is the all books list I can filter the books by rendering only the terror books published in halloween.
 
 
 
 
-## ARCHITECTURE:
+# ARCHITECTURE:
 
 To Structure the project I have grouped the components as Atoms, Molecules and Pages:
 
