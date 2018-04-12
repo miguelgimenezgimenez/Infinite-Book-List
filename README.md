@@ -12,7 +12,7 @@ Deployed project at http://miguelgimenez.tech
     $ npm install
 
 
-**Run in production mode:**
+**Run in production mode: (Recommended)**
 
 
     $ npm start   
@@ -20,8 +20,8 @@ Deployed project at http://miguelgimenez.tech
 Then go to ``http://localhost:8080/``
 
 
-**Run in development mode (you would need to run the api locally ):** 
-
+**Run in development mode :** 
+    **you would need to run the api locally !!!!
 
     $ npm run dev
 	
