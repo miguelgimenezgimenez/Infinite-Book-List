@@ -62,8 +62,6 @@ class ListView extends Component {
       }
     }
 
-    // if the list is being filtered I will probably an empty list for the first load, and the next set should be loaded,
-    // const shouldLazyLoad = this.props.isBeingFiltered || list.length
     const { loading, match } = this.props
     // Lazy load the next set of items
     if (this.props.isBeingFiltered && list.length - endIndex < 100 && !loading && !match.params.query) {
@@ -81,7 +79,6 @@ class ListView extends Component {
             paddingTop: startIndex * rowHeight
           }}
         >
-          
           <List>{items}</List>
         </div>
         {(!loading && !items.length) && <h1>No Matches </h1>}
