@@ -69,7 +69,9 @@ should be rendering , and it will push it to another array of elements which wil
 
 Since I spent a lot of time scraping , I kind of rushed to create the frontend project which is what I should have focused , so the code quality has a lot of room for improvement.
 
-Also I am currently writing component tests with Enzyme.
+There is a lot more of testing to be done, and like I said, if I hadnt rushed I think I couldve done much better.
+
+**I accidentally erased The books starting with letter S from the db (just so you know)**
 
 Thanks and feedback is appreciated if I am not selected.
 
