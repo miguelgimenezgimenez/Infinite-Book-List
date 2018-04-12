@@ -25,7 +25,7 @@ class ListPage extends Component {
 
   componentDidUpdate (prevProps) {
     const { query } = this.props.match.params
-    if (query !== prevProps.match.params.query) {
+    if (query !== prevProps.match.params.query && !this.props.list[query]) {
       this.props.action(this.props.dispatch, query)
     }
   }
