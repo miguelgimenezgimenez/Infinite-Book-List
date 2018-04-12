@@ -54,7 +54,7 @@ main authors (which I ended up with a total of about 20000 authors) and then rep
 So finnally after some dirty scraping I ended up with a list with about half a million books (some of them where repeated) but I decided it was enough
 for the job.
 
-I set up a database in mongolab, created an api and finnally was ready to create the project.
+I set up a database in mongolab, created an api and finnally was ready to create the project.(the models are shared by using git submodules)
 The UI has been done with React, Redux,React Router, Babel, Webpack... There are a few tests done with jest and chai ,didnt have much time 
 to do more testing since I spent too much time on gathering the data.
 
