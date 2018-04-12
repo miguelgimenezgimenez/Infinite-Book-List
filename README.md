@@ -67,6 +67,7 @@ of the viewport, index the elements , and by listening to the scroll position, t
 should be rendering , and it will push it to another array of elements which will then be rendered by React.
 
 Since I spent a lot of time scraping , I kind of rushed to create the frontend project which is what I should have focused , so the code quality has a lot of room for improvement.
+
 Also I am currently writing component tests with Enzyme.
 
 Thanks and feedback is appreciated if I am not selected.
@@ -95,6 +96,8 @@ When the list is the all books list I can filter the books by rendering only the
 
 
 # ARCHITECTURE:
+The way this project is done is a bit different from other react projects I have worked with. 
+In the routes file I will be passing the actions to be dispatched by the components, so that way I could reuse the ListPage component for all routes.
 
 To Structure the project I have grouped the components as Atoms, Molecules and Pages:
 
