@@ -1,4 +1,4 @@
-#  ACCEDO CODE ASSESSMENT 
+#  CASUMO CODE ASSESSMENT 
 
 
 Deployed project at http://miguelgimenez.tech
@@ -21,7 +21,8 @@ Then go to ``http://localhost:8080/``
 
 
 **Run in development mode :** 
-    **you would need to run the api locally !!!!
+
+ **you would need to run the api locally !!!!**
 
     $ npm run dev
 	
