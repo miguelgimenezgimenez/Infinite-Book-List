@@ -10,7 +10,6 @@
     "test": "NODE_ENV=test jest src/tests/**/*.js"
   },
   "jest": {
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
