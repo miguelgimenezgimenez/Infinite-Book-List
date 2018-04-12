@@ -15,7 +15,6 @@ Deployed project at http://miguelgimenez.tech
 **Run in production mode:**
 
 
-    $ npm run build
     $ npm start   
  
 Then go to ``http://localhost:8080/``
