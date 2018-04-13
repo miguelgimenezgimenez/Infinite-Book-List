@@ -61,11 +61,11 @@ class ListView extends Component {
         index++
       }
     }
-
+    // if its being filtered the conditions to lazy load are different
     const shouldLazyLoad = this.props.isBeingFiltered || list.length
     const { loading, match } = this.props
     // Lazy load the next set of items
-    if (shouldReRender && (list.length - endIndex) < 100 && !loading && !match.params.query) {
+    if (shouldLazyLoad && (list.length - endIndex) < 100 && !loading && !match.params.query) {
       this.getNextLetter()
     }
     return (
