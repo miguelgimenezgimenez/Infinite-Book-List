@@ -30,12 +30,6 @@ Then go to ``http://localhost:8080/``
 
 Then go to ``http://localhost:8080/``
 
-**Run in production mode:**
-
-
-    $ npm run build
-    $ npm start   
-  
     
 
 
