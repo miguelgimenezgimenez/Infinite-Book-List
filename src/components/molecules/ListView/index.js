@@ -31,6 +31,8 @@ class ListView extends Component {
         return this.props.action(dispatch, letter)
       }
     }
+    // when is being filtered scroll to top on end of search so results are visible
+    if (this.props.isBeingFiltered) this.node.scrollTop = 0
     return null
   }
 
