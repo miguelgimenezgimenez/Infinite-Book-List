@@ -21,7 +21,7 @@ const store = createStore({})
 
 describe('<ListView />', () => {
   sandbox.stub(bookActions, 'listForLetter')
-  it('Gives the correct props to the  when rendering a  book', () => {
+  it('Gets next elements when filter is active', () => {
     // eslint-disable-next-line
     const wrapper = mount(
       <Provider store={store}>
