@@ -41,4 +41,23 @@ describe('<ListView />', () => {
 
     sinon.assert.calledTwice(bookActions.listForLetter)
   })
+  it('Gets next elements when filter is inactive', () => {
+    // eslint-disable-next-line
+    const wrapper = mount(
+      <Provider store={store}>
+        <MuiThemeProvider>
+          <BrowserRouter>
+            <ListView
+              type="book"
+              rowHeight={30}
+              list={new Array(90)}
+              action={bookActions.listForLetter}
+              loading={false}
+            />
+          </BrowserRouter>
+        </MuiThemeProvider>
+      </Provider >)
+    // when
+    sinon.assert.callCount(bookActions.listForLetter, 4)
+  })
 })
