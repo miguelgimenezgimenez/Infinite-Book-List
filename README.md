@@ -100,16 +100,16 @@ When the list is the all books list I can filter the books by rendering only the
 The way this project is done is a bit different from other react projects I have worked with, since in the routes file
 I will be passing the actions as props to be dispatched by the components, so that way I could reuse the ListPage component for all routes.
 
-To Structure the project I have grouped the components as Atoms, Molecules and Pages:
+To Structure the project I have grouped the components as organisms, organisms and Pages:
 
-### Atoms
+### organisms
 
 Simple components that consist of simple html Elements (or material-ui components).
 
 
-### Molecules
+### organisms
 
-Components that are composed of Atoms and other simple components
+Components that are composed of organisms and other simple components
 
 
 ### Pages

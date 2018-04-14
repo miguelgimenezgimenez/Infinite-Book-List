@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Adapter from 'enzyme-adapter-react-16'
-import Item from '../../components/atoms/Item'
+import Item from '../../components/molecules/Item'
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -35,7 +35,8 @@ describe('<Item />', () => {
       </MuiThemeProvider>)
 
     expect(wrapper.find('ListItem').props().primaryText).to.equal('Pillars of the Earth')
-    expect(wrapper.find('ListItem').props().secondaryText).to.equal('Ken Follet - Genre: HISTORY - Date: 1998')
+    const expectedString = `Ken Follet\n        - Genre: HISTORY\n        - Date: 1998`
+    expect(wrapper.find('ListItem').props().secondaryText).to.equal(expectedString)
   })
   it('Gives the correct props to the ListItemComponent rendering author', () => {
     // eslint-disable-next-line

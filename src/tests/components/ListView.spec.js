@@ -8,7 +8,7 @@ import { Provider } from 'react-redux'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Adapter from 'enzyme-adapter-react-16'
-import ListView from '../../components/molecules/ListView/index'
+import ListView from '../../components/organisms/ListView'
 import createStore from '../../store'
 import * as bookActions from '../../actions/book'
 
