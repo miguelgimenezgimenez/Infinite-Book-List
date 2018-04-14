@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Tabs, Tab } from 'material-ui/Tabs'
 import { withRouter } from 'react-router-dom'
-import Subheader from '../../molecules/SubHeader'
+import Subheader from '../../atoms/SubHeader'
 
 const link = ['books', 'authors', 'genres']
 

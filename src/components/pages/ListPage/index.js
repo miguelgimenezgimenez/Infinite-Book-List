@@ -56,6 +56,7 @@ class ListPage extends Component {
     let [, route, name] = url.split('/')
     name ? name = `: ${name.replace(/_/g, ' ').toUpperCase()}` : name = ''
     route = route.toUpperCase()
+
     return (
       <div >
         <h3>{`${route}   ${name}`}</h3>
@@ -63,8 +64,7 @@ class ListPage extends Component {
         {type === 'author' &&
         <div>
           <AuthorsFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
-        </div>
-        }
+        </div> }
 
         {type === 'book' &&
         <div className={style.filterContainer}>
@@ -73,8 +73,7 @@ class ListPage extends Component {
             className={style.BooksFilter}
             setFilter={filterFunction => this.setFilter(filterFunction)}
           />
-        </div>
-        }
+        </div> }
 
         <ListView list={aggregatedList} type={type} action={action} rowHeight={30} isBeingFiltered={!!filterFn} />
         {this.props.loading &&

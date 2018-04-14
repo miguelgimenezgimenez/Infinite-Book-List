@@ -4,9 +4,6 @@ import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
 import style from './style.scss'
 
-const defaultDate = new Date()
-defaultDate.setFullYear(defaultDate.getFullYear() - 100)
-
 export default class BooksFilter extends Component {
   constructor (props) {
     super(props)
@@ -80,7 +77,6 @@ export default class BooksFilter extends Component {
 
           </div>
         </div>
-
       </div>
     )
   }

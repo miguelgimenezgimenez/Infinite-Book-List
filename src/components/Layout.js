@@ -3,7 +3,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { withRouter } from 'react-router-dom'
 
-import Navbar from './organisms/Navbar'
+import Navbar from './molecules/Navbar'
 
 import './GlobalStyles.scss'
 
