@@ -53,6 +53,9 @@ main authors (which I ended up with a total of about 20000 authors) and then rep
 So finnally after some dirty scraping I ended up with a list with about half a million books (some of them where repeated) but I decided it was enough
 for the job.
 
+**I accidentally erased The books starting with letter S from the db (just so you know)**
+
+
 I set up a database in mongolab, created an api and finnally was ready to create the project.(the models are shared by using git submodules)
 There are a few tests done with jest, chai and enzyme ,didnt have much time 
 to do more testing since I spent too much time on gathering the data.
@@ -70,7 +73,6 @@ Since I spent a lot of time scraping , I kind of rushed to create the frontend p
 
 There is a lot more of testing and proptypes validation to be done.
 
-**I accidentally erased The books starting with letter S from the db (just so you know)**
 
 Thanks and feedback is appreciated if I am not selected.
 
