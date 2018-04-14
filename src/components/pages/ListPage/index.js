@@ -3,10 +3,9 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { BarLoader } from 'react-css-loaders'
 import ListView from '../../molecules/ListView'
-import MaleFemaleFilter from '../../atoms/MaleFemaleFilter'
-import DateFilter from '../../atoms/DateFilter'
+import AuthorsFilter from '../../atoms/AuthorsFilter'
+import BooksFilter from '../../atoms/BooksFilter'
 import style from './style.scss'
-import HalloweenFilter from '../../atoms/HalloweenFilter'
 
 import { createList } from '../../../../utils/createList'
 
@@ -55,7 +54,7 @@ class ListPage extends Component {
     // Get titles for List Page
     const { url } = this.props.match
     let [, route, name] = url.split('/')
-    name ? name = `:${name.replace(/_/g, ' ').toUpperCase()}` : name = ''
+    name ? name = `: ${name.replace(/_/g, ' ').toUpperCase()}` : name = ''
     route = route.toUpperCase()
     return (
       <div >
@@ -63,19 +62,17 @@ class ListPage extends Component {
 
         {type === 'author' &&
         <div>
-          <MaleFemaleFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
+          <AuthorsFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
         </div>
         }
 
         {type === 'book' &&
         <div className={style.filterContainer}>
-          <DateFilter
-            className={style.dateFilter}
+          <BooksFilter
+            query={query}
+            className={style.BooksFilter}
             setFilter={filterFunction => this.setFilter(filterFunction)}
           />
-          {!query && <HalloweenFilter
-            setFilter={filterFunction => this.setFilter(filterFunction)}
-          />}
         </div>
         }
 
