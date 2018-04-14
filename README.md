@@ -39,11 +39,12 @@ To do this project I have done the  UI with React, Redux,React Router, Babel, We
 
 I have also created my own API with express and a web scraper with Selenium for the reasons mentioned below.
 
-The first difficulty I faced while doing the project was being able to get a list of 1 million books, after a lot of research through most of the
+The first difficulty I faced while doing the project was being able to get a list of 1 million books, 
+after a lot of research through most of the
 book APIS available I found that the best way to be able to do this was creating my own database of books by scraping www.goodreads.com.
 
 So the first thing I did was create a web scraper using selenium (the code for this is very ugly but it works).
-After browing throught the page I decided that first I was going to scrape all the authors , and afterwards I would call the goodreads API to get the list of books 
+After browsing throught the page I decided that first I was going to scrape all the authors , and afterwards I would call the goodreads API to get the list of books 
 for each author.
 
 Since all the authors are not available by going through all the letters of the alphabet and scraping their author search page , I only ended up with
