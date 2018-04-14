@@ -35,6 +35,9 @@ Then go to ``http://localhost:8080/``
 
 # DESCRIPTION
 
+To do this project I have done the  UI with React, Redux,React Router, Babel, Webpack and material-ui. 
+I have also created my own API with express and a web scraper with Selenium for the reasons mentioned below.
+
 The first difficulty I faced while doing the project was being able to get a list of 1 million books, after a lot of research through most of the
 book APIS available I found that the best way to be able to do this was creating my own database of books by scraping www.goodreads.com.
 
@@ -49,7 +52,7 @@ So finnally after some dirty scraping I ended up with a list with about half a m
 for the job.
 
 I set up a database in mongolab, created an api and finnally was ready to create the project.(the models are shared by using git submodules)
-The UI has been done with React, Redux,React Router, Babel, Webpack... There are a few tests done with jest and chai ,didnt have much time 
+There are a few tests done with jest, chai and enzyme ,didnt have much time 
 to do more testing since I spent too much time on gathering the data.
 
 The second difficulty I faced with the project was loading a list of thousands of elements without it crashing the browser.
@@ -63,7 +66,7 @@ should be rendering , and it will push it to another array of elements which wil
 
 Since I spent a lot of time scraping , I kind of rushed to create the frontend project which is what I should have focused , so the code quality has a lot of room for improvement.
 
-There is a lot more of testing and proptypes validation to be done, and like I said, if I hadnt rushed I think I couldve done much better.
+There is a lot more of testing and proptypes validation to be done.
 
 **I accidentally erased The books starting with letter S from the db (just so you know)**
 
@@ -93,19 +96,19 @@ When the list is the all books list I can filter the books by rendering only the
 
 
 # ARCHITECTURE:
-The way this project is done is a bit different from other react projects I have worked with. 
-In the routes file I will be passing the actions to be dispatched by the components, so that way I could reuse the ListPage component for all routes.
+The way this project is done is a bit different from other react projects I have worked with, since in the routes file
+I will be passing the actions as props to be dispatched by the components, so that way I could reuse the ListPage component for all routes.
 
 To Structure the project I have grouped the components as Atoms, Molecules and Pages:
 
 ### Atoms
 
-Simple components that consist of other Atoms or simple components.
+Simple components that consist of simple html Elements (or material-ui components).
 
 
 ### Molecules
 
-Components that render different simple components, like atoms or other molecules.
+Components that are composed of Atoms and other simple components
 
 
 ### Organisms
