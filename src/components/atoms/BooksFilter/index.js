@@ -14,7 +14,6 @@ export default class BooksFilter extends Component {
       startDate: null,
       endDate: null,
       active: false
-
     }
   }
 
@@ -27,7 +26,7 @@ export default class BooksFilter extends Component {
     this.setState({ [key]: date.getFullYear() })
   }
 
-  setBooksFilter (startDate, endDate) {
+  setDateFilter (startDate, endDate) {
     this.props.setFilter(list => list.filter(item => item.year >= startDate && item.year <= endDate))
     this.setState({ active: true })
   }
@@ -60,7 +59,7 @@ export default class BooksFilter extends Component {
               disabled={!startDate || !endDate}
               primary
               label="Date Filter"
-              onClick={() => this.setBooksFilter(startDate, endDate)}
+              onClick={() => this.setDateFilter(startDate, endDate)}
             />
 
             {!this.props.query && <RaisedButton
