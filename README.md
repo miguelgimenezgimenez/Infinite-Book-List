@@ -36,6 +36,7 @@ Then go to ``http://localhost:8080/``
 # DESCRIPTION
 
 To do this project I have done the  UI with React, Redux,React Router, Babel, Webpack and material-ui. 
+
 I have also created my own API with express and a web scraper with Selenium for the reasons mentioned below.
 
 The first difficulty I faced while doing the project was being able to get a list of 1 million books, after a lot of research through most of the
@@ -109,11 +110,6 @@ Simple components that consist of simple html Elements (or material-ui component
 ### Molecules
 
 Components that are composed of Atoms and other simple components
-
-
-### Organisms
-
-Components that render different organisms, atoms and/or molecules
 
 
 ### Pages
