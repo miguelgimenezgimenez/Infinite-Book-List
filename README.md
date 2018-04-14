@@ -102,14 +102,14 @@ I will be passing the actions as props to be dispatched by the components, so th
 
 To Structure the project I have grouped the components as organisms, organisms and Pages:
 
-### organisms
+### molecules
 
 Simple components that consist of simple html Elements (or material-ui components).
 
 
 ### organisms
 
-Components that are composed of organisms and other simple components
+Components that are composed of molecules and other simple components
 
 
 ### Pages
