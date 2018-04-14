@@ -63,7 +63,9 @@ class ListPage extends Component {
 
         {type === 'author' &&
         <div>
-          <AuthorsFilter setFilter={filterFunction => this.setFilter(filterFunction)} />
+          <AuthorsFilter
+            setFilter={filterFunction => this.setFilter(filterFunction)}
+          />
         </div> }
 
         {type === 'book' &&
@@ -75,9 +77,20 @@ class ListPage extends Component {
           />
         </div> }
 
-        <ListView list={aggregatedList} type={type} action={action} rowHeight={30} isBeingFiltered={!!filterFn} />
+        <ListView
+          list={aggregatedList}
+          type={type}
+          action={action}
+          rowHeight={30}
+          isBeingFiltered={!!filterFn}
+        />
+
         {this.props.loading &&
-          <BarLoader className={style.loader} color="#EC5281" size={22} />
+          <BarLoader
+            className={style.loader}
+            color="#EC5281"
+            size={22}
+          />
         }
       </div>)
   }
