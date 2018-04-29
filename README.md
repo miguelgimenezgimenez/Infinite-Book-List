@@ -1,4 +1,4 @@
-#  CASUMO CODE ASSESSMENT 
+#  INFINITE BOOK LIST
 
 
 Deployed project at http://miguelgimenez.tech
