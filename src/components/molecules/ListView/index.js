@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
 import Item from '../../atoms/Item'
+import { createList } from '../../../../utils/createList'
 
 class ListView extends Component {
   constructor (props) {
@@ -23,15 +24,14 @@ class ListView extends Component {
   }
 
   getNextLetter () {
-    let i
     const { storeList, dispatch } = this.props
-    for (i = 'B'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
-      const letter = String.fromCharCode(i)
+    const cb = (letter) => {
       if (!storeList[letter]) {
         return this.props.action(dispatch, letter)
       }
+      return null
     }
-    return null
+    createList(null, cb)
   }
 
   handleScroll (event) {
@@ -79,7 +79,7 @@ class ListView extends Component {
             paddingTop: startIndex * rowHeight
           }}
         >
-          
+
           <List>{items}</List>
         </div>
         {(!loading && !items.length) && <h1>No Matches </h1>}

@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import { withRouter, NavLink } from 'react-router-dom'
 import NavigationBefore from 'material-ui/svg-icons/navigation/arrow-back'
 import style from './style.scss'
+import { createList } from '../../../../utils/createList'
 
-const alphabet = []
-let i
-for (i = 'A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
-  const letter = String.fromCharCode(i)
-  alphabet.push(letter)
-}
+const alphabet = createList()
 
 class SubHeader extends Component {
   render () {
