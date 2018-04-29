@@ -4,7 +4,7 @@ import { List } from 'material-ui/List'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import Item from '../../atoms/Item'
+import Item from '../../molecules/Item'
 import { createList } from '../../../../utils/createList'
 
 class ListView extends Component {
