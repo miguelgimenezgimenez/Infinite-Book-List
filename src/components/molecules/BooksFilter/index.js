@@ -59,14 +59,6 @@ export default class BooksFilter extends Component {
               onClick={() => this.setDateFilter(startDate, endDate)}
             />
 
-            {!this.props.query && <RaisedButton
-              style={{ height: 40, marginLeft: 30 }}
-              primary
-              color="black"
-              label="Horror Books Published on Halloween"
-              onClick={() => this.setHalloweenFilter()}
-            />}
-
             <RaisedButton
               style={{ height: 40, marginLeft: 60 }}
               secondary

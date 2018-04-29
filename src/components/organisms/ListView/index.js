@@ -17,10 +17,18 @@ class ListView extends Component {
   }
 
   componentDidMount () {
+    console.log('fdfsfdsdsfd')
     // eslint-disable-next-line
     this.setState({
       availableHeight: this.node.clientHeight
     })
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if (this.props.match.params.query !== prevProps.match.params.query &&
+    !this.props.loading) {
+      this.node.scrollTop = 0
+    }
   }
 
   getNextLetter () {
