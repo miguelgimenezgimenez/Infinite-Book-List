@@ -4,7 +4,8 @@ import { List } from 'material-ui/List'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
-import Item from '../../molecules/Item'
+import Item from '../../atoms/Item'
+import { createList } from '../../../../utils/createList'
 
 class ListView extends Component {
   constructor (props) {
@@ -23,17 +24,17 @@ class ListView extends Component {
   }
 
   getNextLetter () {
-    let i
     const { storeList, dispatch } = this.props
-    for (i = 'B'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++) {
-      const letter = String.fromCharCode(i)
+    const cb = (letter) => {
       if (!storeList[letter]) {
         return this.props.action(dispatch, letter)
       }
+      // when is being filtered scroll to top on end of search so results are visible
+      if (this.props.isBeingFiltered) this.node.scrollTop = 0
+      return null
     }
-    // when is being filtered scroll to top on end of search so results are visible
-    if (this.props.isBeingFiltered) this.node.scrollTop = 0
-    return null
+
+    createList(null, cb)
   }
 
   handleScroll (event) {
